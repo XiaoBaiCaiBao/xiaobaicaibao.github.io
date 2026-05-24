@@ -43,27 +43,63 @@ graph TD
 
 这里展示一次完整客服处理链路：用户问题进入 Agent 后，先完成意图识别和问题改写，再根据场景选择 RAG 知识库、MCP 业务工具或 Skills SOP，最后生成可解释的客服回复。
 
-图文混合输入，改写后，RAG知识问题
-![alt text](imgs/case1-rag.png)
-
-MCP实现实时数据查询
-![alt text](imgs/case2-mcp.png)
-
-复杂意图，skills处理
-![alt text](imgs/case3-skills.png)
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <strong>RAG 知识召回</strong><br>
+      <sub>图文混合输入经问题改写后，命中产品知识并生成可追溯回复。</sub>
+      <br><br>
+      <a href="imgs/case1-rag.png">
+        <img src="imgs/case1-rag.png" alt="RAG 知识召回链路截图" width="100%">
+      </a>
+    </td>
+    <td width="33%" valign="top">
+      <strong>MCP 实时查询</strong><br>
+      <sub>用户资产、账号、订单等问题通过 MCP 工具查询实时业务数据。</sub>
+      <br><br>
+      <a href="imgs/case2-mcp.png">
+        <img src="imgs/case2-mcp.png" alt="MCP 实时业务查询截图" width="100%">
+      </a>
+    </td>
+    <td width="33%" valign="top">
+      <strong>Skills SOP 处理</strong><br>
+      <sub>复杂异常场景进入可复用 SOP，完成证据收集、判断和工单提交。</sub>
+      <br><br>
+      <a href="imgs/case3-skills.png">
+        <img src="imgs/case3-skills.png" alt="Skills SOP 复杂意图处理截图" width="100%">
+      </a>
+    </td>
+  </tr>
+</table>
 
 ### 2. 管理后台：知识库构建
 
 运营可以在后台维护知识文档，配置分类、负责人、版本、标签、适用范围和分块策略；发布后的内容会写入共享向量库，供用户侧 Agent 检索。
 
-![alt text](imgs/admin1-rag.png)
-![alt text](imgs/admin2-rag2.png)
+<table>
+  <tr>
+    <td width="50%">
+      <a href="imgs/admin1-rag.png">
+        <img src="imgs/admin1-rag.png" alt="知识库文档管理页面" width="100%">
+      </a>
+    </td>
+    <td width="50%">
+      <a href="imgs/admin2-rag2.png">
+        <img src="imgs/admin2-rag2.png" alt="知识库分块与发布页面" width="100%">
+      </a>
+    </td>
+  </tr>
+</table>
 
 ### 3. LangSmith 监控与评测
 
 通过 LangSmith 观察 Agent 的每轮调用过程，包括模型输入输出、工具调用、RAG 召回结果、意图分类、响应延迟和评测结果，方便持续优化 BadCase。
 
-![alt text](imgs/langsmith1.png)
+<p align="center">
+  <a href="imgs/langsmith1.png">
+    <img src="imgs/langsmith1.png" alt="LangSmith trace 与评测看板" width="92%">
+  </a>
+</p>
 
 ## 技术栈
 
